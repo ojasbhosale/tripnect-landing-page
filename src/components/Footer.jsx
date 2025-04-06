@@ -144,7 +144,7 @@ const Footer = () => {
             <div className="footer-links-group">
               <h4>Contact Us</h4>
               <p className="footer-contact-info">
-                <span>Email:</span> support@tripnect.com
+                <span>Email:</span> tripnect.contact@gmail.com
               </p>
               <button
                 className="btn btn-secondary footer-cta"
