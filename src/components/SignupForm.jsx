@@ -3,17 +3,18 @@
 import { useState, useEffect, useRef } from "react"
 // eslint-disable-next-line no-unused-vars
 import { motion, useAnimation, useInView } from "framer-motion"
-import { useForm, ValidationError } from "@formspree/react"
 import "../styles/SignupForm.css"
 
 const SignupForm = () => {
-  // Replace with your actual Formspree form ID
-  const [state, handleSubmit] = useForm("mnnppdag")
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     travelInterest: "",
   })
+
+  const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState(null)
 
   const controls = useAnimation()
   const ref = useRef(null)
@@ -31,6 +32,33 @@ const SignupForm = () => {
       ...prevData,
       [name]: value,
     }))
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setSubmitting(true)
+    setError(null)
+
+    try {
+      const res = await fetch("https://usebasin.com/f/7f1c9b004bed", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams(formData).toString(),
+      })
+
+      if (res.ok) {
+        setSubmitted(true)
+        setFormData({ name: "", email: "", travelInterest: "" })
+      } else {
+        setError("Something went wrong. Please try again.")
+      }
+    } catch  {
+      setError("Network error. Please try again.")
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   const containerVariants = {
@@ -57,7 +85,7 @@ const SignupForm = () => {
     },
   }
 
-  if (state.succeeded) {
+  if (submitted) {
     return (
       <section id="signup" className="signup-section" ref={ref}>
         <div className="container">
@@ -126,7 +154,6 @@ const SignupForm = () => {
                   required
                   placeholder="Enter your full name"
                 />
-                <ValidationError prefix="Name" field="name" errors={state.errors} />
               </motion.div>
 
               <motion.div className="form-group" variants={itemVariants}>
@@ -140,7 +167,6 @@ const SignupForm = () => {
                   required
                   placeholder="Enter your email address"
                 />
-                <ValidationError prefix="Email" field="email" errors={state.errors} />
               </motion.div>
 
               <motion.div className="form-group" variants={itemVariants}>
@@ -162,20 +188,20 @@ const SignupForm = () => {
                   <option value="Budget Travel">Budget Travel</option>
                   <option value="Luxury Travel">Luxury Travel</option>
                 </select>
-                <ValidationError prefix="Travel Interest" field="travelInterest" errors={state.errors} />
               </motion.div>
 
               <motion.button
                 type="submit"
                 className="btn btn-primary form-button"
-                disabled={state.submitting}
+                disabled={submitting}
                 variants={itemVariants}
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
               >
-                {state.submitting ? <span className="loading-spinner"></span> : "Join the Waitlist"}
+                {submitting ? <span className="loading-spinner"></span> : "Join the Waitlist"}
               </motion.button>
-              <ValidationError errors={state.errors} />
+
+              {error && <p className="form-error">{error}</p>}
             </form>
           </motion.div>
 
@@ -224,4 +250,3 @@ const SignupForm = () => {
 }
 
 export default SignupForm
-
