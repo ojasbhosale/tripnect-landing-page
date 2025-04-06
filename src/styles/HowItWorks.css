@@ -80,11 +80,11 @@
   display: inline-block;
 }
 
-.section-subtitle {
+.how-it-works-section .section-subtitle {
   font-size: 1.125rem;
   max-width: 700px;
   margin: 0 auto;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.8) ;
 }
 
 .steps-wrapper {
