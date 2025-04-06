@@ -7,7 +7,7 @@
   min-height: calc(100vh - var(--navbar-height)); /* Ensures the section fits within viewport */
   display: flex;
   align-items: center;
-  max-height: 100vh;
+ 
 }
 
 /* Background slideshow */
@@ -229,9 +229,7 @@
 }
 
 @media (max-height: 800px) {
-  .how-it-works-section {
-    max-height: none;
-  }
+  
   .step-card {
     padding: 1.5rem 1rem;
   }
