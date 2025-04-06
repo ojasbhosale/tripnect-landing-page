@@ -90,7 +90,7 @@ const Hero = () => {
     }, 3000)
 
     return () => clearInterval(taglineInterval)
-  }, [])
+  }, [taglineWords.length])
 
   return (
     <section id="hero" className="hero-section">
