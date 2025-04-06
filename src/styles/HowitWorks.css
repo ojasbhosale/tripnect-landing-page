@@ -1,0 +1,247 @@
+.how-it-works-section {
+  padding: var(--section-spacing) 0;
+  position: relative;
+  overflow: hidden;
+  min-height: calc(100vh - var(--navbar-height)); /* Ensures the section fits within viewport */
+  display: flex;
+  align-items: center;
+  max-height: 100vh;
+}
+
+/* Background slideshow */
+.background-slideshow-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.background-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.background-slide.active {
+  opacity: 1;
+}
+
+.background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 100%);
+  z-index: 1;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: white;
+  font-weight: 700;
+}
+
+.how-it-works-section .section-title {
+  color: white;
+}
+
+
+.text-gradient {
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  display: inline-block;
+}
+
+.section-subtitle {
+  font-size: 1.125rem;
+  max-width: 700px;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.steps-wrapper {
+  position: relative;
+  margin-top: 2rem;
+  z-index: 1;
+  padding-bottom: 1rem;
+}
+
+.steps-timeline {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  border-radius: var(--radius-full);
+  z-index: 0;
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.5);
+}
+
+.steps-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.step-card {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: all var(--transition-medium);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.step-number {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  z-index: 2;
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
+}
+
+.step-icon-wrapper {
+  width: 70px;
+  height: 70px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.step-icon {
+  font-size: 2.25rem;
+}
+
+.step-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: var(--dark);
+  position: relative;
+  z-index: 1;
+  font-weight: 600;
+}
+
+.step-description {
+  color: var(--gray);
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+
+.step-decoration {
+  position: absolute;
+  bottom: -50px;
+  right: -50px;
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(16, 185, 129, 0.1));
+  border-radius: var(--radius-full);
+  z-index: 0;
+  opacity: 0.5;
+  transition: all var(--transition-medium);
+}
+
+.step-card:hover .step-decoration {
+  transform: scale(1.2);
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+  .steps-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .steps-timeline {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .steps-container {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .how-it-works-section {
+    padding: 3rem 0;
+  }
+}
+
+@media (max-height: 800px) {
+  .step-card {
+    padding: 1.5rem 1rem;
+  }
+  
+  .step-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1rem;
+  }
+  
+  .step-icon {
+    font-size: 1.75rem;
+  }
+  
+  .section-header {
+    margin-bottom: 2rem;
+  }
+}
