@@ -1,13 +1,13 @@
 :root {
-  --primary: #0ea5e9; /* Updated primary color */
-  --primary-dark: #0284c7; /* Updated darker shade */
-  --secondary: #6366f1; /* Vibrant secondary color */
-  --accent: #f97316; /* New accent color */
-  --dark: #0f172a;
-  --light: #f8fafc;
-  --radius-full: 9999px;
-  --font-logo: "Montserrat", sans-serif; /* Updated logo font */
-  --font-body: "Inter", sans-serif; /* Body font */
+  --primary: #0ea5e9 !important; /* Updated primary color */
+  --primary-dark: #0284c7 !important; /* Updated darker shade */
+  --secondary: #6366f1 !important; /* Vibrant secondary color */
+  --accent: #f97316 !important; /* New accent color */
+  --dark: #0f172a !important;
+  --light: #f8fafc !important;
+  --radius-full: 9999px !important;
+  --font-logo: "Montserrat", sans-serif !important; /* Updated logo font */
+  --font-body: "Inter", sans-serif !important; /* Body font */
 }
 
 .navbar {

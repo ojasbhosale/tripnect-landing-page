@@ -229,6 +229,9 @@
 }
 
 @media (max-height: 800px) {
+  .how-it-works-section {
+    max-height: none;
+  }
   .step-card {
     padding: 1.5rem 1rem;
   }
