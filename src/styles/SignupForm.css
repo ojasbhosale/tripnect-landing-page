@@ -129,49 +129,88 @@
     position: relative;
   }
   
-  .image-content {
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-    padding: 3rem;
-    border-radius: var(--radius-lg);
-    color: white;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    box-shadow: var(--shadow-lg);
-  }
-  
-  .image-content h3 {
-    font-size: 1.8rem;
-    margin-bottom: 2rem;
-    color: white;
-  }
-  
-  .image-content ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .image-content li {
-    margin-bottom: 1.2rem;
-    display: flex;
-    align-items: center;
-    font-size: 1.1rem;
-  }
-  
-  .check-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 24px;
-    height: 24px;
-    background-color: white;
-    color: var(--primary);
-    border-radius: var(--radius-full);
-    margin-right: 1rem;
-    font-weight: bold;
-  }
+.image-content {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  padding: 2.5rem;
+  border-radius: var(--radius-lg);
+  color: white;
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 2rem;
+  transition: transform 0.3s ease;
+}
+.image-content:hover {
+  transform: translateY(-5px);
+}
+
+.image-content h3 {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  color: white;
+  font-weight: 600;
+}
+
+.image-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.image-content li {
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+/* Shared card style */
+.info-card {
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-xl);
+}
+
+.info-card h4 {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.info-card p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* Specific variations */
+.fun-fact-box {
+  background: linear-gradient(135deg, #3b82f6, #1e40af); /* blue shades */
+  color: white;
+}
+
+.highlight-box {
+  background: linear-gradient(135deg, #ec4899, #be185d); /* pink-magenta shades */
+  color: white;
+}
+
+.check-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background-color: white;
+  color: var(--primary);
+  border-radius: var(--radius-full);
+  margin-right: 1rem;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
   
   .signup-success {
     background-color: white;
