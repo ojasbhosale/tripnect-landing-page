@@ -44,7 +44,7 @@ const SignupForm = () => {
     setError(null)
 
     try {
-      const res = await fetch("https://usebasin.com/f/7f1c9b004bed", {
+      const res = await fetch("https://usebasin.com/f/f561c10a7935", {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
