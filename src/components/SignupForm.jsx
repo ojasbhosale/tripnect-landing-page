@@ -30,6 +30,13 @@ const SignupForm = () => {
     }
   }, [controls, isInView])
 
+  useEffect(() => {
+  if (navigator.userAgent.includes("Instagram")) {
+    alert("For best experience, open TripNect in Chrome/Safari.");
+  }
+}, []);
+
+
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData((prevData) => ({

@@ -1,4 +1,5 @@
-.signup-section {
+  .signup-section {
+    min-height: 100vh;
     padding: var(--section-spacing) 0;
     background-color: var(--light);
     position: relative;
