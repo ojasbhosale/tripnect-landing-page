@@ -381,7 +381,7 @@ const SignupForm = () => {
               <div className="info-card highlight-box">
                 <h4>🎁 Early Bird Rewards</h4>
                 <p>
-                  The first <strong>100 signups</strong> will unlock exclusive{" "}
+                  The first <strong>500 signups</strong> will unlock exclusive{" "}
                   <em>TripNect perks</em> — including travel e-guides, community
                   shoutouts, and surprise discounts on future trips.
                 </p>
